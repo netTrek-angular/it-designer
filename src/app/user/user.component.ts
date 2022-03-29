@@ -5,6 +5,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   templateUrl: './user.component.html',
   // template: '<p><strong>hello</strong> world</p>',
   styleUrls: ['./user.component.scss'],
+  // styles: [
+  //   `:host {display: block}`
+  // ],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UserComponent implements OnInit {
