@@ -1,0 +1,10 @@
+
+:host { // styles für den gesamten Vorlagenbereich der Kompont
+  display: block;
+  color: red;
+
+  ::ng-deep button {
+    color: blue;
+  }
+}
+
