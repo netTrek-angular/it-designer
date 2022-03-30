@@ -16,4 +16,8 @@ export class AppComponent {
   newPercentVal(percent: number) {
     console.log ( 'new val' + percent );
   }
+
+  log(msg: string) {
+    console.log( msg )
+  }
 }
