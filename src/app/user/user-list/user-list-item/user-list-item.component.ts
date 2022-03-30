@@ -1,11 +1,21 @@
-import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 
 @Component({
   selector: 'itd-user-list-item',
   templateUrl: './user-list-item.component.html',
   styleUrls: ['./user-list-item.component.scss']
 })
-export class UserListItemComponent {
+export class UserListItemComponent /*implements OnInit, OnChanges*/ {
 
   @Input() name = ''
   @Output() selectUsr: EventEmitter<string> = new EventEmitter<string>()
@@ -20,4 +30,13 @@ export class UserListItemComponent {
   clicked() {
     this.selectUsr.emit( this.name );
   }
+/*
+  ngOnChanges(changes: SimpleChanges): void {
+    debugger
+  }
+
+  ngOnInit(): void {
+    console.log ('init')
+  }
+  */
 }
