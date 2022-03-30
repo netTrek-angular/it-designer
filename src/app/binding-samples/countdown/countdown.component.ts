@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'itd-countdown',
@@ -6,10 +6,21 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   styleUrls: ['./countdown.component.scss']
 })
 export class CountdownComponent implements OnInit, OnDestroy {
+  get duration(): number {
+    return this._duration;
+  }
+  @Input()
+  set duration(value: number | string) {
+    this._duration = Number(value);
+  }
 
   private intervalID?: number;
-  private duration = 4000;
+  private _duration: number = 4000;
+  // @Input() duration: number = 4000;
   percent = 100;
+
+  @Output() completed: EventEmitter<void> = new EventEmitter<void>()
+  @Output() percentValChg: EventEmitter<number> = new EventEmitter<number>()
 
   constructor() {
   }
@@ -25,7 +36,9 @@ export class CountdownComponent implements OnInit, OnDestroy {
   private startCountdown() {
     this.intervalID = setInterval(() => {
       this.percent -= 5;
+      this.percentValChg.emit( this.percent );
       if (this.percent === 0) {
+        this.completed.emit();
         this.stopInterval();
       }
     }, this.duration / 30 )
