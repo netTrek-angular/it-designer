@@ -14,6 +14,10 @@ export class BindingSamplesComponent implements OnInit {
 Hello <strong>World</strong> <script>alert('hacked')</script>
 </p>`;
   fontColor: number|string = 'blue';
+
+
+  isSelected = true;
+  selectedIndex = -1;
   constructor() { }
 
   ngOnInit(): void {
@@ -42,6 +46,7 @@ Hello <strong>World</strong> <script>alert('hacked')</script>
 | rot          |
 ----------------
 */
+  classes: string = 'desc-text-large';
   getName(prefix: string = '', num?: number ) {
     // console.log( 'getName' );
     // return prefix + this.name
@@ -61,7 +66,16 @@ Hello <strong>World</strong> <script>alert('hacked')</script>
     }
   }
 
-  chgColor() {
+  chgColor( $event?: MouseEvent ) {
     this.fontColor = this.fontColor === 'red' ? 'blue' : 'red';
+   //  this.classes += ' font-color-red';
+  }
+
+  setSelected(selected: number) {
+    if ( this.selectedIndex === selected ) {
+      this.selectedIndex = -1;
+    } else {
+      this.selectedIndex = selected;
+    }
   }
 }

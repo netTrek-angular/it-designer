@@ -1,8 +1,8 @@
 <p>binding-samples works!</p>
 <ul>
-  <li>{{ 1 + 1 }}</li> <!--niemals bitte-->
-  <li>{{name}} netto:{{num}} brutto:{{num * 1.19}}</li>
-  <li>{{getName( 'Herr', num )}}</li>
+  <li [class.selected]="selectedIndex===0" (click)="setSelected(0)">{{ 1 + 1 }}</li> <!--niemals bitte-->
+  <li [class.selected]="selectedIndex===1" (click)="setSelected(1)">{{name}} netto:{{num}} brutto:{{num * 1.19}}</li>
+  <li [class.selected]="selectedIndex===2" (click)="setSelected(2)">{{getName( 'Herr', num )}}</li>
   <!--<li>{{getName( )}}</li>-->
 </ul>
 
@@ -25,12 +25,22 @@
      [style.width]="num + 'px'"
      (click)="chgColor()"></div>
 -->
+<!--
 
 <div class="desc-text"
+
+     [class]="{
+        selected: true,
+        'desc-text-large': true
+     }"
+-->
+
+<div class="desc-text"
+     [class]="classes"
      [innerHTML]="html"
      [style.color]="fontColor"
      [style.width.px]="num"
-     (click)="chgColor()"></div>
+     (click)="chgColor( $event )"></div>
 
 
 <hr>
