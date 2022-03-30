@@ -7,10 +7,14 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class UserListComponent {
 
+  selectedUserName = '';
   @Input() userList: string[] = ['peter', 'saban']
 
   constructor() {
   }
 
-
+  selectedUsrName( userName: string) {
+    this.selectedUserName =
+      this.selectedUserName === userName ? '' : userName;
+  }
 }

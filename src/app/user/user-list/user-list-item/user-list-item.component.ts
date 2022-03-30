@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'itd-user-list-item',
@@ -8,8 +8,12 @@ import {Component, Input} from '@angular/core';
 export class UserListItemComponent {
 
   @Input() name = ''
+  @Output() selectUsr: EventEmitter<string> = new EventEmitter<string>()
 
   constructor() { }
 
 
+  clicked() {
+    this.selectUsr.emit( this.name );
+  }
 }
