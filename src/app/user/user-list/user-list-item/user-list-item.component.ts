@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'itd-user-list-item',
@@ -10,9 +10,13 @@ export class UserListItemComponent {
   @Input() name = ''
   @Output() selectUsr: EventEmitter<string> = new EventEmitter<string>()
 
+  @Input()
+  @HostBinding('class.selected')
+  isSelected = false;
+
   constructor() { }
 
-
+  @HostListener('click')
   clicked() {
     this.selectUsr.emit( this.name );
   }

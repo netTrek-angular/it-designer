@@ -5,4 +5,8 @@
   &:hover {
     color: blue;
   }
+
+  &.selected {
+    font-weight: bolder;
+  }
 }
