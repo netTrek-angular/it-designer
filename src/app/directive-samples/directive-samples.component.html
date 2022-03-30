@@ -1,0 +1,38 @@
+<p>directive-samples works!</p>
+
+<ul>
+  <li *ngFor="let name of names; index as i; odd as o; even as e"
+      [class]="{
+      odd: o, even: e
+      }"
+  >
+    {{name}}
+  </li>
+</ul>
+
+<hr>
+
+
+
+<p>{{show}}</p>
+<button (click)="toggleShow()">toggle show</button>
+
+<hr>
+
+<img *ngIf="show; else elseBlock" src="./assets/img/200300.jpeg" alt="cat">
+
+<ng-template #elseBlock>
+  <div>cat not shown</div>
+</ng-template>
+
+<ng-template [ngIf]="show">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+  <img src="./assets/img/200300.jpeg" alt="cat">
+</ng-template>
