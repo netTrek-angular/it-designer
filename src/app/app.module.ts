@@ -9,6 +9,7 @@ import { DirectiveSamplesModule } from './directive-samples/directive-samples.mo
 import { PipeSamplesModule } from './pipe-samples/pipe-samples.module';
 
 import '@angular/common/locales/global/de'
+import {FOOD, NON_FOOD} from "./pipe-samples/tax/tax.token";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import '@angular/common/locales/global/de'
     PipeSamplesModule,
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'de'} // der Injektor bekommt die Info, dass de die Standrdsprache ist
+    {provide: LOCALE_ID, useValue: 'de'}, // der Injektor bekommt die Info, dass de die Standrdsprache ist
+    // {provide: FOOD, useValue: 1.07 },
+    // {provide: NON_FOOD, useValue: 1.19 },
   ],
   bootstrap: [AppComponent]
 })

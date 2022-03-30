@@ -1,5 +1,21 @@
 <p>pipe-samples works!</p>
 
+<h4>my tax pipte</h4>
+<ul>
+  <li>{{samplePrice}}</li>
+  <li>{{samplePrice | tax | currency : 'EUR' }}</li>
+  <li>{{samplePrice | tax : true | currency : 'EUR' }}</li>
+</ul>
+
+
+<h4>JSON</h4>
+<ul>
+  <li>{{sampleObj}}</li>
+  <li>{{sampleObj | json}}</li>
+</ul>
+<p></p>
+
+
 <h4>Datum</h4>
 <ul>
   <li>{{sampleDate}}</li>
