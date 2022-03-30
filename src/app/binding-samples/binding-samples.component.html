@@ -1,1 +1,41 @@
 <p>binding-samples works!</p>
+<ul>
+  <li>{{ 1 + 1 }}</li> <!--niemals bitte-->
+  <li>{{name}} netto:{{num}} brutto:{{num * 1.19}}</li>
+  <li>{{getName( 'Herr', num )}}</li>
+  <!--<li>{{getName( )}}</li>-->
+</ul>
+
+<button (click)="increment()">increment</button>
+<button (click)="increment( 20 )">increment with 20</button>
+
+<hr>
+<!--
+<div [innerHTML]="html" style="color: red"></div>
+-->
+<!--
+<div [innerHTML]="html" [style]="{color: fontColor}"></div>
+-->
+
+<!--
+
+<div class="desc-text"
+     [innerHTML]="html"
+     [style.color]="fontColor"
+     [style.width]="num + 'px'"
+     (click)="chgColor()"></div>
+-->
+
+<div class="desc-text"
+     [innerHTML]="html"
+     [style.color]="fontColor"
+     [style.width.px]="num"
+     (click)="chgColor()"></div>
+
+
+<hr>
+
+<img (click)="chgImg()" src="./assets/img/{{crrImage}}.jpeg" alt="cat">
+
+<img [src]="'./assets/img/'+crrImage+'.jpeg'" alt="cat">
+<img [attr.src]="'./assets/img/'+crrImage+'.jpeg'" alt="cat">
