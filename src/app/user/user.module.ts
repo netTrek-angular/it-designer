@@ -4,6 +4,7 @@ import { UserComponent } from './user.component';
 import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 import { UserCompLogoComponent } from './user-comp-logo/user-comp-logo.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserListItemComponent } from './user-list/user-list-item/user-list-item.component';
 
 
 
@@ -12,13 +13,15 @@ import { UserListComponent } from './user-list/user-list.component';
     UserComponent,
     UserAvatarComponent,
     UserCompLogoComponent,
-    UserListComponent
+    UserListComponent,
+    UserListItemComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [
-    UserComponent
-  ],
+    exports: [
+        UserComponent,
+        UserListComponent
+    ],
 })
 export class UserModule { }

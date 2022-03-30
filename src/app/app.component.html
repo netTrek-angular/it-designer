@@ -1,6 +1,11 @@
 <span>{{ title }} app is running!</span>
 <hr>
 
+<itd-user-list
+  [userList]="['frank', 'heike']"
+></itd-user-list>
+
+<!--
 <itd-countdown
   duration="1000"
   (percentValChg)="newPercentVal( $event)"
@@ -9,7 +14,6 @@
 <itd-countdown [duration]="countdownDuration" ></itd-countdown>
 <itd-countdown ></itd-countdown>
 
-<!--
 <itd-countdown style="width: 50%; display: inline-block"></itd-countdown>
 <itd-countdown style="width: 50%; display: inline-block"></itd-countdown>
 <itd-binding-samples></itd-binding-samples>
