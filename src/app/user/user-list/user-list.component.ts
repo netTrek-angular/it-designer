@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {UserService} from "../user.service";
 // import {UserService} from "../user.service";
 
 @Component({
@@ -12,12 +13,13 @@ export class UserListComponent {
   selectedUserName = '';
   @Input() userList: string[] = ['peter', 'saban']
 
-  constructor( /*private readonly user: UserService*/ ) {
+  constructor( private readonly user: UserService ) {
   }
 
   selectedUsrName( userName: string) {
     this.selectedUserName =
       this.selectedUserName === userName ? '' : userName;
+    this.user.setSelectedName( this.selectedUserName );
     // this.user.selectedName = this.selectedUserName;
   }
 }

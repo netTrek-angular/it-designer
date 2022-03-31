@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {UserService} from "./user.service";
 
 @Component({
   selector: 'itd-user',
@@ -10,9 +11,9 @@ export class UserComponent {
 
   name = "Saban";
 
-  constructor() { }
+  constructor( public readonly user: UserService ) {}
 
-  chgName() {
-    this.name = 'Peter';
+  startInterval() {
+    this.user.initIntervalSample();
   }
 }
