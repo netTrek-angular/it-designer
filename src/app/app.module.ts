@@ -11,6 +11,7 @@ import {PipeSamplesModule} from './pipe-samples/pipe-samples.module';
 import '@angular/common/locales/global/de'
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppAuthInterceptor} from "./app-auth.interceptor";
+import { NotFoundModule } from './not-found/not-found.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {AppAuthInterceptor} from "./app-auth.interceptor";
     BindingSamplesModule,
     DirectiveSamplesModule,
     PipeSamplesModule,
+    NotFoundModule,
   ],
   providers: [
     // UserService,
