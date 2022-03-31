@@ -28,15 +28,23 @@ export class UserListComponent {
       this.selectedUser  === user ? undefined : user;
     this.user.setSelectedUsr( this.selectedUser );
     // this.user.selectedName = this.selectedUserName;
+
     // test for update a user
     // if ( this.selectedUser ) {
     //   this.selectedUser.firstname = this.selectedUser.firstname + '_';
     //   this.selectedUser.save().subscribe()
     // }
 
-    // if ( this.selectedUser ) {
-    //   this.selectedUser.del().subscribe()
-    // }
+    // test for del a user
+    if ( this.selectedUser ) {
+      const toDel = this.selectedUser.id;
+      this.selectedUser.del().subscribe( n => {
+        this.selectedUser = undefined;
+        this.user.setSelectedUsr( this.selectedUser );
+        const ind = this.userList!.findIndex( value => value.id === toDel );
+        this.userList!.splice( ind, 1 )
+      });
+    }
 
 
 

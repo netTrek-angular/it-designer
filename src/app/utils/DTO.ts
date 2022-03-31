@@ -4,16 +4,21 @@ import {Observable} from "rxjs";
 export abstract class DTO<T> {
 
   protected get value (): T {
-    let payload = {...(this as any)};
-    delete (payload as any).endpoint;
-    delete (payload as any).http;
+    const keys = Object.keys( this._payload );
+    let payload: any = {};
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys [i];
+      if ( key in this ) {
+        payload[key] = (this as any)[key];
+      }
+    }
     return payload as T;
   }
 
-  constructor( payload: T, private readonly endpoint: string, private readonly http: HttpClient ) {
-    for (const payloadKey in payload) {
-      if ( payloadKey in payload ) {
-        const val = (payload as any)[payloadKey];
+  constructor( private readonly _payload: T, private readonly endpoint: string, private readonly http: HttpClient ) {
+    for (const payloadKey in _payload) {
+      if ( payloadKey in _payload ) {
+        const val = (_payload as any)[payloadKey];
         (this as any)[payloadKey] = val;
       }
     }
