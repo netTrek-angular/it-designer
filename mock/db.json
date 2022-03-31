@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstname": "Cristi",
-      "lastname": "Kalker",
-      "email": "ckalker0@stumbleupon.com"
-    },
-    {
       "id": 2,
       "firstname": "Hagan",
       "lastname": "Medgwick",

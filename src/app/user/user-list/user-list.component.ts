@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../user.service";
 import {User} from "../user";
 import {UserDTO} from "../user-dto";
+import {Router} from "@angular/router";
 // import {UserService} from "../user.service";
 
 @Component({
@@ -14,7 +15,7 @@ export class UserListComponent {
   selectedUser?: UserDTO;
   @Input() userList?: UserDTO [];
 
-  constructor( private readonly user: UserService ) {
+  constructor( private readonly user: UserService, private readonly router: Router) {
   }
 
   addNewUser ( firstname: string, lastname: string, email: string ) {
@@ -24,9 +25,14 @@ export class UserListComponent {
   }
 
   selectedUsr( user: UserDTO) {
+
+    this.router.navigate( ['/user', user.id ] )
+
+    /*
     this.selectedUser =
       this.selectedUser  === user ? undefined : user;
     this.user.setSelectedUsr( this.selectedUser );
+    */
     // this.user.selectedName = this.selectedUserName;
 
     // test for update a user

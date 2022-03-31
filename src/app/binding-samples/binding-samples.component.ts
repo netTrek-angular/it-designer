@@ -1,60 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'itd-binding-samples',
   templateUrl: './binding-samples.component.html',
   styleUrls: ['./binding-samples.component.scss']
 })
-export class BindingSamplesComponent implements OnInit {
+export class BindingSamplesComponent {
 
   name: string = 'Saban';
   num: number = 300;
   crrImage: number = 200300;
   html: string = `<p>
-Hello <strong>World</strong> <script>alert('hacked')</script>
+Hello <strong>World</strong>
 </p>`;
   fontColor: number|string = 'blue';
 
 
   isSelected = true;
   selectedIndex = -1;
-  constructor() { }
 
-  ngOnInit(): void {
-    console.log ( 'init interval')
-    // setInterval( () => {
-    //   this.increment( 10 );
-    // }, 500 )
-
-  }
-  /*
-  // baut eine Comp
-  // in der komp sind zwei vollflächige Vierecke
-  // rotes Viereck liegt im grünen
-  // innerhalb von 5 sekunden soll das rote viereck bis auf eine Breite von 0%
-  // animiert verkleinert werden
-
-  ----------------
-  | grün          |
-  ----------------
-
-----------------
-| grün   | rot |
-----------------
-
-----------------
-| rot          |
-----------------
-*/
   classes: string = 'desc-text-large';
+
+  constructor( private readonly router: Router ) {
+  }
+
+
   getName(prefix: string = '', num?: number ) {
-    // console.log( 'getName' );
-    // return prefix + this.name
     return `${prefix} ${this.name} ${num??0}`
   }
 
   increment( val: number = 1) {
-    // console.log( 'increment' );
     this.num = this.num + val ;
   }
 
@@ -68,7 +44,6 @@ Hello <strong>World</strong> <script>alert('hacked')</script>
 
   chgColor( $event?: MouseEvent ) {
     this.fontColor = this.fontColor === 'red' ? 'blue' : 'red';
-   //  this.classes += ' font-color-red';
   }
 
   setSelected(selected: number) {
@@ -77,5 +52,11 @@ Hello <strong>World</strong> <script>alert('hacked')</script>
     } else {
       this.selectedIndex = selected;
     }
+  }
+
+  goToUser() {
+    this.router.navigate(
+      ['/user']
+    )
   }
 }

@@ -5,6 +5,8 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 import { UserCompLogoComponent } from './user-comp-logo/user-comp-logo.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserListItemComponent } from './user-list/user-list-item/user-list-item.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -14,10 +16,12 @@ import { UserListItemComponent } from './user-list/user-list-item/user-list-item
     UserAvatarComponent,
     UserCompLogoComponent,
     UserListComponent,
-    UserListItemComponent
+    UserListItemComponent,
+    UserDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
     exports: [
         UserComponent,

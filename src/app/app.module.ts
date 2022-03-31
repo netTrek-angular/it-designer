@@ -12,6 +12,8 @@ import '@angular/common/locales/global/de'
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppAuthInterceptor} from "./app-auth.interceptor";
 import { NotFoundModule } from './not-found/not-found.module';
+import {NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @NgModule({
   declarations: [
@@ -36,4 +38,15 @@ import { NotFoundModule } from './not-found/not-found.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor( router: Router ) {
+
+    router.events.pipe(
+      filter ( events => events instanceof NavigationEnd )
+    )
+      .subscribe(
+        // n => console.log( n )
+      )
+
+  }
+}

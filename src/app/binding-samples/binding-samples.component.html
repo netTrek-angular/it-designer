@@ -1,39 +1,18 @@
 <p>binding-samples works!</p>
+
+<button (click)="goToUser()">go to user</button>
+
+
 <ul>
   <li [class.selected]="selectedIndex===0" (click)="setSelected(0)">{{ 1 + 1 }}</li> <!--niemals bitte-->
   <li [class.selected]="selectedIndex===1" (click)="setSelected(1)">{{name}} netto:{{num}} brutto:{{num * 1.19}}</li>
   <li [class.selected]="selectedIndex===2" (click)="setSelected(2)">{{getName( 'Herr', num )}}</li>
-  <!--<li>{{getName( )}}</li>-->
 </ul>
 
 <button (click)="increment()">increment</button>
 <button (click)="increment( 20 )">increment with 20</button>
 
 <hr>
-<!--
-<div [innerHTML]="html" style="color: red"></div>
--->
-<!--
-<div [innerHTML]="html" [style]="{color: fontColor}"></div>
--->
-
-<!--
-
-<div class="desc-text"
-     [innerHTML]="html"
-     [style.color]="fontColor"
-     [style.width]="num + 'px'"
-     (click)="chgColor()"></div>
--->
-<!--
-
-<div class="desc-text"
-
-     [class]="{
-        selected: true,
-        'desc-text-large': true
-     }"
--->
 
 <div class="desc-text"
      [class]="classes"
@@ -49,3 +28,11 @@
 
 <img [src]="'./assets/img/'+crrImage+'.jpeg'" alt="cat">
 <img [attr.src]="'./assets/img/'+crrImage+'.jpeg'" alt="cat">
+<!--
+
+<hr>
+<a routerLink="/" routerLinkActive="active">pipes</a> |
+<a routerLink="directive" routerLinkActive="active">directive</a>
+<hr>
+<router-outlet></router-outlet>
+-->
