@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Cristi",
+      "lastname": "Kalker",
+      "email": "ckalker0@stumbleupon.com"
+    },
+    {
+      "id": 2,
+      "firstname": "Hagan",
+      "lastname": "Medgwick",
+      "email": "hmedgwick1@opera.com"
+    },
+    {
+      "id": 3,
+      "firstname": "Dre",
+      "lastname": "Ringer",
+      "email": "dringer2@ezinearticles.com"
+    },
+    {
+      "id": 4,
+      "firstname": "Bernard",
+      "lastname": "Oxtiby",
+      "email": "boxtiby3@unblog.fr"
+    },
+    {
+      "id": 5,
+      "firstname": "Deb",
+      "lastname": "Broggelli",
+      "email": "dbroggelli4@nhs.uk"
+    },
+    {
+      "id": 6,
+      "firstname": "Dyna",
+      "lastname": "Allworthy",
+      "email": "dallworthy5@guardian.co.uk"
+    },
+    {
+      "id": 7,
+      "firstname": "Lilla",
+      "lastname": "Segoe",
+      "email": "lsegoe6@macromedia.com"
+    },
+    {
+      "id": 8,
+      "firstname": "Kerianne",
+      "lastname": "Bimrose",
+      "email": "kbimrose7@mapy.cz"
+    },
+    {
+      "id": 9,
+      "firstname": "Ingrim",
+      "lastname": "Shovell",
+      "email": "ishovell8@acquirethisname.com"
+    },
+    {
+      "id": 10,
+      "firstname": "Chet",
+      "lastname": "Grissett",
+      "email": "cgrissett9@last.fm"
+    }
+  ]
+}
