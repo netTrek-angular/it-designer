@@ -2,7 +2,7 @@
 <!--
 <p>{{user.selectedName}} {{user.intervalVal}} {{user.interval$ | async}}</p>
 -->
-{{user.intervalVal}}
+{{user.interval$ | async}} # {{user.intervalVal}}
 <h4>{{user.selectedName$ | async}}</h4>
 
 <itd-user-list></itd-user-list>

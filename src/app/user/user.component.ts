@@ -14,6 +14,6 @@ export class UserComponent {
   constructor( public readonly user: UserService ) {}
 
   startInterval() {
-    this.user.initIntervalSample();
+    this.user.subScribeToSharedObs();
   }
 }

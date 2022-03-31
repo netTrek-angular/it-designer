@@ -19,7 +19,10 @@ import {
 })
 export class UserService {
 
-  interval$ = interval(500);
+  interval$ = interval(500)
+    .pipe(
+      share()
+    );
 
   selectedName$ = new BehaviorSubject<string | undefined>( undefined );
   intervalVal?: number;
@@ -27,15 +30,18 @@ export class UserService {
   intervalID?: number
 
   constructor() {
-    // this.init();
+    this.init();
   }
 
   public setSelectedName ( name: string  ) {
     this.selectedName$.next( name );
   }
 
+  public subScribeToSharedObs () {
+    this.interval$.subscribe( next => this.intervalVal = next );
+  }
+
   public initIntervalSample() {
-    // this.interval$.subscribe( next => this.intervalVal = next );
 
     const observable: Observable<number> = interval(500).pipe(
       filter(val => val % 2 === 0),
@@ -52,7 +58,9 @@ export class UserService {
 
   private init() {
     // this.initIntervalSample();
-    // this.interval$.subscribe( next => console.log ( next ) );
+    this.interval$
+      .pipe( take ( 5 ))
+      .subscribe( next => console.log ( next ) );
     // this.initTimerSample ();
     // this.initOfSample();
     // this.initFromEventSample();
