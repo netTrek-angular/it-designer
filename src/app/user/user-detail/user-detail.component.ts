@@ -19,14 +19,14 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log ( 'init userDetail' )
-    this.subscription = this.activatedRoute.paramMap.pipe(
-      map ( paramMap => Number (paramMap.get('id')) ),
-      filter ( id => !!id ),
-      switchMap ( id => this.userService.getUser( id ) )
-    ).subscribe(
-      userDTO => this.userDTO = userDTO
-    )
+
+    this.activatedRoute.data
+      .pipe(
+        map ( data => (data as any).user )
+      )
+      .subscribe(
+        userDTO => this.userDTO = userDTO
+      )
 
     /* vermeide verschachtelte subscriptions
     this.activatedRoute.paramMap.pipe(

@@ -6,11 +6,17 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {PipeSamplesComponent} from "./pipe-samples/pipe-samples.component";
 import {DirectiveSamplesComponent} from "./directive-samples/directive-samples.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
+import {UserResolver} from "./user/user.resolver";
+import {ValidAdminGuard} from "./user/valid-admin.guard";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'user' },
   { path: 'user', component: UserComponent },
-  { path: 'user/:id', component: UserDetailComponent },
+  { path: 'user/:id', component: UserDetailComponent, resolve: {
+    user: UserResolver
+    }, canActivate: [
+      ValidAdminGuard
+    ] },
   { path: 'bindings', component: BindingSamplesComponent
     /*
     ,children: [
