@@ -1,14 +1,5 @@
-import {
-  Component,
-  EventEmitter,
-  HostBinding,
-  HostListener,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
+import {User} from "../../user";
 
 @Component({
   selector: 'itd-user-list-item',
@@ -17,8 +8,8 @@ import {
 })
 export class UserListItemComponent /*implements OnInit, OnChanges*/ {
 
-  @Input() name = ''
-  @Output() selectUsr: EventEmitter<string> = new EventEmitter<string>()
+  @Input() user?: User;
+  @Output() selectUsr: EventEmitter<User> = new EventEmitter<User>()
 
   @Input()
   @HostBinding('class.selected')
@@ -28,15 +19,6 @@ export class UserListItemComponent /*implements OnInit, OnChanges*/ {
 
   @HostListener('click')
   clicked() {
-    this.selectUsr.emit( this.name );
+    this.selectUsr.emit( this.user );
   }
-/*
-  ngOnChanges(changes: SimpleChanges): void {
-    debugger
-  }
-
-  ngOnInit(): void {
-    console.log ('init')
-  }
-  */
 }

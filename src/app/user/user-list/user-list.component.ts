@@ -10,16 +10,16 @@ import {User} from "../user";
 })
 export class UserListComponent {
 
-  selectedUserName = '';
+  selectedUser?: User;
   @Input() userList?: User[];
 
   constructor( private readonly user: UserService ) {
   }
 
-  selectedUsrName( userName: string) {
-    this.selectedUserName =
-      this.selectedUserName === userName ? '' : userName;
-    this.user.setSelectedName( this.selectedUserName );
+  selectedUsr( user: User) {
+    this.selectedUser =
+      this.selectedUser  === user ? undefined : user;
+    this.user.setSelectedUsr( this.selectedUser );
     // this.user.selectedName = this.selectedUserName;
   }
 }

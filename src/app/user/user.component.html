@@ -1,4 +1,6 @@
 <itd-user-comp-logo></itd-user-comp-logo>
-<h4>{{user.selectedName$ | async}}</h4>
+<ng-container *ngIf="user.selectedUsr$ | async as usrObj">
+  <h4>{{usrObj.firstname}} {{usrObj.lastname}}</h4>
+</ng-container>
 
 <itd-user-list [userList]="users"></itd-user-list>

@@ -7,13 +7,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class UserService {
-  selectedName$ = new BehaviorSubject<string | undefined>( undefined );
+  selectedUsr$ = new BehaviorSubject<User | undefined>( undefined );
 
   constructor( private readonly http: HttpClient ) {
   }
 
-  public setSelectedName ( name: string  ) {
-    this.selectedName$.next( name );
+  public setSelectedUsr ( user: User | undefined ) {
+    this.selectedUsr$.next( user );
   }
 
   getUsers (): Observable<User[]> {
