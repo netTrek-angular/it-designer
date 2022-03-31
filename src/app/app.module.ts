@@ -9,7 +9,8 @@ import {DirectiveSamplesModule} from './directive-samples/directive-samples.modu
 import {PipeSamplesModule} from './pipe-samples/pipe-samples.module';
 
 import '@angular/common/locales/global/de'
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AppAuthInterceptor} from "./app-auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [
     // UserService,
     {provide: LOCALE_ID, useValue: 'de'}, // der Injektor bekommt die Info, dass de die Standrdsprache ist
+    {provide: HTTP_INTERCEPTORS, useClass: AppAuthInterceptor, multi: true }
     // {provide: FOOD, useValue: 1.07 },
     // {provide: NON_FOOD, useValue: 1.19 },
   ],

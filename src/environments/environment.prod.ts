@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  endpoints: {
+    users: 'http://localhost:3000/users'
+  }
 };

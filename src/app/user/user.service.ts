@@ -3,6 +3,7 @@ import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {User} from "./user";
 import {HttpClient} from "@angular/common/http";
 import {UserDTO} from "./user-dto";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
   }
 
   getUsers(): Observable<UserDTO[]> {
-    return this.http.get<User[]>('http://localhost:3000/users').pipe(
+    return this.http.get<User[]>(environment.endpoints.users).pipe(
       map(users =>
         users.map(value =>
           new UserDTO(value, 'http://l' +
@@ -28,19 +29,13 @@ export class UserService {
   }
 
   addUser ( user: User ): Observable<UserDTO> {
-    const userDTO = new UserDTO( user, 'http://localhost:3000/users', this.http );
+    const userDTO = new UserDTO( user, environment.endpoints.users, this.http );
     return userDTO.add().pipe(
       map(user =>
-          new UserDTO( user, 'http://localhost:3000/users', this.http ))
+          new UserDTO( user, environment.endpoints.users, this.http ))
     );
   }
 
-  /*
-
-    getUsers (): Observable<User[]> {
-      return this.http.get<User[]>( 'http://localhost:3000/users');
-    }
-  */
 }
 
 /*
