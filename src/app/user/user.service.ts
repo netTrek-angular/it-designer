@@ -1,22 +1,27 @@
 import {Injectable} from "@angular/core";
-import {
-  BehaviorSubject,
-  debounceTime,
-  distinctUntilChanged,
-  filter, first,
-  fromEvent,
-  interval,
-  map, multicast,
-  Observable,
-  of,
-  range, share, Subject,
-  take,
-  timer, zip
-} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import {User} from "./user";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
+export class UserService {
+  selectedName$ = new BehaviorSubject<string | undefined>( undefined );
+
+  constructor( private readonly http: HttpClient ) {
+  }
+
+  public setSelectedName ( name: string  ) {
+    this.selectedName$.next( name );
+  }
+
+  getUsers (): Observable<User[]> {
+    return this.http.get<User[]>( 'http://localhost:3000/users');
+  }
+}
+/*
+
 export class UserService {
 
   interval$ = interval(500)
@@ -166,3 +171,4 @@ export class UserService {
     observable.next( 5 );
   }
 }
+*/

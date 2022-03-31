@@ -1,9 +1,4 @@
 <itd-user-comp-logo></itd-user-comp-logo>
-<!--
-<p>{{user.selectedName}} {{user.intervalVal}} {{user.interval$ | async}}</p>
--->
-{{user.interval$ | async}} # {{user.intervalVal}}
 <h4>{{user.selectedName$ | async}}</h4>
 
-<itd-user-list></itd-user-list>
-<button (click)="startInterval()">start interval</button>
+<itd-user-list [userList]="users"></itd-user-list>

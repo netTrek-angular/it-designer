@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserService} from "./user.service";
+import {User} from "./user";
 
 @Component({
   selector: 'itd-user',
@@ -8,12 +9,14 @@ import {UserService} from "./user.service";
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UserComponent {
-
   name = "Saban";
+  users?: User[];
 
-  constructor( public readonly user: UserService ) {}
+  constructor( public readonly user: UserService ) {
+    this.init()
+  }
 
-  startInterval() {
-    this.user.subScribeToSharedObs();
+  private init() {
+    this.user.getUsers().subscribe( users => this.users = users );
   }
 }

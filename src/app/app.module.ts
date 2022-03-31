@@ -9,6 +9,7 @@ import {DirectiveSamplesModule} from './directive-samples/directive-samples.modu
 import {PipeSamplesModule} from './pipe-samples/pipe-samples.module';
 
 import '@angular/common/locales/global/de'
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import '@angular/common/locales/global/de'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     UserModule,
     BindingSamplesModule,
     DirectiveSamplesModule,

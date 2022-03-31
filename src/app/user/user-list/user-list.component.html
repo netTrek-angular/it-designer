@@ -1,12 +1,3 @@
-<!--
-<h1>{{selectedUserName}}</h1>
--->
-<itd-user-list-item *ngFor="let username of userList" [name]="username"
-                    [isSelected]="selectedUserName===username"
+<itd-user-list-item *ngFor="let user of userList" [name]="user.firstname"
+                    [isSelected]="selectedUserName===user.firstname"
                     (selectUsr)="selectedUsrName($event)"></itd-user-list-item>
-<!--
-
-<itd-user-list-item [name]="userList[1]"
-                    [isSelected]="selectedUserName===userList[1]"
-                    (selectUsr)="selectedUsrName($event)"></itd-user-list-item>
--->
