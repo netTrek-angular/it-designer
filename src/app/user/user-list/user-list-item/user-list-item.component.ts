@@ -1,5 +1,6 @@
 import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
 import {User} from "../../user";
+import {UserDTO} from "../../user-dto";
 
 @Component({
   selector: 'itd-user-list-item',
@@ -8,8 +9,8 @@ import {User} from "../../user";
 })
 export class UserListItemComponent /*implements OnInit, OnChanges*/ {
 
-  @Input() user?: User;
-  @Output() selectUsr: EventEmitter<User> = new EventEmitter<User>()
+  @Input() user?: UserDTO;
+  @Output() selectUsr: EventEmitter<UserDTO> = new EventEmitter<UserDTO>()
 
   @Input()
   @HostBinding('class.selected')

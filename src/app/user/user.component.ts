@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserService} from "./user.service";
 import {User} from "./user";
+import {UserDTO} from "./user-dto";
 
 @Component({
   selector: 'itd-user',
@@ -10,7 +11,7 @@ import {User} from "./user";
 })
 export class UserComponent {
   name = "Saban";
-  users?: User[];
+  users?: UserDTO[];
 
   constructor( public readonly user: UserService ) {
     this.init()

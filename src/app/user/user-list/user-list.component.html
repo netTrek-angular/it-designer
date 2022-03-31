@@ -1,3 +1,7 @@
 <itd-user-list-item *ngFor="let user of userList" [user]="user"
                     [isSelected]="selectedUser===user"
                     (selectUsr)="selectedUsr($event)"></itd-user-list-item>
+
+
+
+<button (click)="addNewUser( 'saban', 'uenlue', 'us@netTrek.de')">test to add User</button>

@@ -1,25 +1,48 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {User} from "./user";
 import {HttpClient} from "@angular/common/http";
+import {UserDTO} from "./user-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  selectedUsr$ = new BehaviorSubject<User | undefined>( undefined );
+  selectedUsr$ = new BehaviorSubject<User | undefined>(undefined);
 
-  constructor( private readonly http: HttpClient ) {
+  constructor(private readonly http: HttpClient) {
   }
 
-  public setSelectedUsr ( user: User | undefined ) {
-    this.selectedUsr$.next( user );
+  public setSelectedUsr(user: User | undefined) {
+    this.selectedUsr$.next(user);
   }
 
-  getUsers (): Observable<User[]> {
-    return this.http.get<User[]>( 'http://localhost:3000/users');
+  getUsers(): Observable<UserDTO[]> {
+    return this.http.get<User[]>('http://localhost:3000/users').pipe(
+      map(users =>
+        users.map(value =>
+          new UserDTO(value, 'http://l' +
+            'ocalhost:3000/users', this.http ))
+      )
+    )
   }
+
+  addUser ( user: User ): Observable<UserDTO> {
+    const userDTO = new UserDTO( user, 'http://localhost:3000/users', this.http );
+    return userDTO.add().pipe(
+      map(user =>
+          new UserDTO( user, 'http://localhost:3000/users', this.http ))
+    );
+  }
+
+  /*
+
+    getUsers (): Observable<User[]> {
+      return this.http.get<User[]>( 'http://localhost:3000/users');
+    }
+  */
 }
+
 /*
 
 export class UserService {
